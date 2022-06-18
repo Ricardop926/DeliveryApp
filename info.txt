@@ -1,0 +1,13 @@
+//participantes
+Ricardo Andres Porras ->
+Daniel Arango Villegas -> danielarango990@gmail.com
+//metodos de delete 
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(TblCliente _cliente)
+        {
+            var _cliente
+            await (_cliente);
+            return Ok(_cliente);
+        }
+
