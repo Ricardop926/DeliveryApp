@@ -1,4 +1,5 @@
-﻿using Delivery.Core.Entities;
+﻿using Delivery.Core.DTOs;
+using Delivery.Core.Entities;
 using Delivery.Core.Interfaces;
 using Delivery.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +12,23 @@ namespace Delivery.Infrastructure.Respositories
 
         public TblClienteRepository(DB_MafiaTechContext context)
         {
-            _context = context; 
+            _context = context;
         }
 
         public async Task<IEnumerable<TblCliente>> GetTblClientes()
         {
             var _tblCliente = await _context.TblClientes.ToListAsync();
-            return _tblCliente;   
+            return _tblCliente;
         }
-        public async Task AddTblCliente(TblCliente obj)
+        public async Task<TblCliente> GetTblCliente(int id)
         {
-            _context.TblClientes.Add(obj);
+            var _tblCliente = await _context.TblClientes.FirstOrDefaultAsync(x => x.IdCliente == id);
+            return _tblCliente;
+
+        }
+        public async Task InsertTblCliente(TblCliente _tblCliente)
+        {
+            _context.TblClientes.Add(_tblCliente);
             await _context.SaveChangesAsync();
 
         }
@@ -32,14 +39,7 @@ namespace Delivery.Infrastructure.Respositories
             await _context.SaveChangesAsync();
 
         }
-        public async Task DeleteTblCliente(TblCliente obj)
-        {
-            _context.TblClientes.Remove(obj);
-            await _context.SaveChangesAsync();
 
-        }
-
-
-
+       
     }
 }

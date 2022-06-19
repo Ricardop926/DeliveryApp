@@ -9,8 +9,12 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+/*builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());*/
 builder.Services.AddAutoMapper(typeof(Program).Assembly, typeof(Automapper_Profile).Assembly);
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
 
 
 builder.Services.AddDbContext<DB_MafiaTechContext>(options =>

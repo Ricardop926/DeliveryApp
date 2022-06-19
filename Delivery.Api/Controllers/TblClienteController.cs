@@ -19,42 +19,48 @@ namespace Delivery.Api.Controllers
         public TblClienteController(IMapper mapper, ITblClienteRepository tblClienteRepository)
         {
             _tblClienteRepository = tblClienteRepository;
-            _mapper = mapper;   
+            _mapper = mapper;
 
         }
         [HttpGet]
         public async Task<IActionResult> GetTblClientes()
         {
             var _cliente = await _tblClienteRepository.GetTblClientes();
-            return Ok(_cliente);
+            var _clienteDto = _mapper.Map<IEnumerable<TblClienteDto>>(_cliente);
+            return Ok(_clienteDto);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetTblCliente()
-    {
-        var _cliente = await _tblClienteRepository.GetTblClientes();
-        return Ok(_cliente);
-
-           var _clienteDto = _mapper.Map<IEnumerable<TblClienteDto>>(_cliente);
+        public async Task<IActionResult> GetTblCliente(int id)
+        {
+            var _cliente = await _tblClienteRepository.GetTblCliente(id);
+            var _clienteDto = _mapper.Map<TblClienteDto>(_cliente);
             return Ok(_clienteDto);
         }
 
         [HttpPost]
-        
-        public async Task<IActionResult> Post(TblCliente _cliente)
+         public async Task<IActionResult> Post(TblClienteDto _clienteDto)
         {
-            await _tblClienteRepository.AddTblCliente(_cliente);
+            var _cliente = _mapper.Map<TblCliente>(_clienteDto);
+            await _tblClienteRepository.InsertTblCliente(_cliente);
             return Ok(_cliente);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Put(TblCliente _cliente)
+       [HttpPut]
+        public async Task<IActionResult> Put(TblCliente _clienteDto)
         {
+            var _cliente = _mapper.Map<TblCliente>(_clienteDto);
             await _tblClienteRepository.UpdateTblCliente(_cliente);
             return Ok(_cliente);
         }
 
-       
+/*        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(TblCliente _cliente)
+        {
+            var _cliente
+            await (_cliente);
+            return Ok(_cliente);
+        }*/
 
 
 
