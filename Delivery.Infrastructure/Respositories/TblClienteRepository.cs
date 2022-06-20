@@ -40,6 +40,14 @@ namespace Delivery.Infrastructure.Respositories
 
         }
 
-       
+        public async Task DeleteTblCliente(int id)
+
+        {
+            var clienteExistente = _context.TblClientes.FirstOrDefault(x => x.IdCliente == id);
+            _context.TblClientes.Remove(clienteExistente);
+            await _context.SaveChangesAsync();
+
+        }
+
     }
 }

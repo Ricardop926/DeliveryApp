@@ -14,5 +14,7 @@ namespace Delivery.Core.Interfaces
         Task<TblCliente> GetTblCliente(int id);
         Task InsertTblCliente(TblCliente _tblCliente);
         Task UpdateTblCliente(TblCliente cliente);
+
+        Task DeleteTblCliente(int id);
     }
 }

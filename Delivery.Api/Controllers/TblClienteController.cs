@@ -54,13 +54,12 @@ namespace Delivery.Api.Controllers
             return Ok(_cliente);
         }
 
-/*        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(TblCliente _cliente)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            var _cliente
-            await (_cliente);
-            return Ok(_cliente);
-        }*/
+            await _tblClienteRepository.DeleteTblCliente(id);
+            return Ok();
+        }
 
 
 
