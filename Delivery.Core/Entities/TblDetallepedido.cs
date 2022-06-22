@@ -19,5 +19,10 @@ namespace Delivery.Core.Entities
         public virtual TblPedido? IdPedidoNavigation { get; set; }
         public virtual TblRestaurante? IdRestauranteNavigation { get; set; }
         public object TblDetallepedidoId { get; set; }
+
+        public static Task FirstOrDefaultAsync(Func<object, bool> value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

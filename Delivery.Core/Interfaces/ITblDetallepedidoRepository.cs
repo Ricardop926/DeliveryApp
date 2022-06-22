@@ -14,5 +14,6 @@ namespace Delivery.Core.Interfaces
         Task AddTblDetallepedido(TblDetallepedido _Detallepedido);
        
         Task<bool> UpdateTblDetallepedido(TblDetallepedido _Detallepedido);
+        Task<bool> DeleteTblDetallepedido(int id);
     }
 }

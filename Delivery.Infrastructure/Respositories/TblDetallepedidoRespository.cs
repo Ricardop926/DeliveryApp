@@ -43,15 +43,23 @@ namespace Delivery.Infrastructure.Respositories
 
         public async Task<bool> UpdateTblDetallepedido(TblDetallepedido _Detallepedido)
         {
-            var currentTbldetallepedido = await GetTblDetallepedido(TblDetallepedido. DetallePedido);
-            currentTbldetallepedido.IdPrducto = _Detallepedido.IdProducto;
-            currentTbldetallepedido.NombreRestaurante = _Detallepedido.NombreRestautante;
+            var currentTbldetallepedido = await _context.TblDetallepedidos.FirstOrDefaultAsync(x => x.IdDetallePedido == _Detallepedido.IdDetallePedido);
             currentTbldetallepedido.NombreEmpleado = _Detallepedido.NombreEmpleado;
 
             int rows = await _context.SaveChangesAsync();
             return rows > 0;
         }
 
-       
+        public async Task<bool> DeleteTblDetallepedido(int id)
+        {
+            var currentTbldetallepedido = await GetTblDetallepedido(id); 
+            _context.TblDetallepedidos.Remove(currentTbldetallepedido);
+            int rows = await _context.SaveChangesAsync();
+            return rows > 0;
+
+        }
+
+
+
     }
 }

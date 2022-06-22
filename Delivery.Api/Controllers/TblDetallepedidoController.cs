@@ -51,6 +51,14 @@ namespace Delivery.Api.Controllers
             return Ok(_Detallepedido);
         }
 
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _tblDetallepedidoRepository.DeleteTblDetallepedido(id);
+
+            return Ok(result);
+        }
+
 
     }
 }
