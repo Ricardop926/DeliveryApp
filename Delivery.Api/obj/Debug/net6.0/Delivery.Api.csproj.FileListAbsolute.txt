@@ -69,3 +69,8 @@ C:\Users\ricar\OneDrive\Escritorio\Delivery1\Delivery\Delivery.Api\bin\Debug\net
 C:\Users\ricar\OneDrive\Escritorio\Delivery1\Delivery\Delivery.Api\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\ricar\OneDrive\Escritorio\Delivery1\Delivery\Delivery.Api\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\ricar\OneDrive\Escritorio\Delivery1\Delivery\Delivery.Api\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\ricar\OneDrive\Escritorio\Delivery1\Delivery\Delivery.Api\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\ricar\OneDrive\Escritorio\Delivery1\Delivery\Delivery.Api\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\ricar\OneDrive\Escritorio\Delivery1\Delivery\Delivery.Api\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\ricar\OneDrive\Escritorio\Delivery1\Delivery\Delivery.Api\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\ricar\OneDrive\Escritorio\Delivery1\Delivery\Delivery.Api\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

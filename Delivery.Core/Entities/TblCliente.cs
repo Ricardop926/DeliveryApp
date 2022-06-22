@@ -16,7 +16,6 @@ namespace Delivery.Core.Entities
         public string? FechaIngreso { get; set; }
 
         public virtual ICollection<TblPedido> TblPedidos { get; set; }
-
-        
+        public int TblClienteID { get; set; }
     }
 }

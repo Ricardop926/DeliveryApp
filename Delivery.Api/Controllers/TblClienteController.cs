@@ -47,18 +47,19 @@ namespace Delivery.Api.Controllers
         }
 
        [HttpPut]
-        public async Task<IActionResult> Put(TblCliente _clienteDto)
+        public async Task<IActionResult> Put(int id, TblClienteDto _clienteDto)
         {
             var _cliente = _mapper.Map<TblCliente>(_clienteDto);
             await _tblClienteRepository.UpdateTblCliente(_cliente);
             return Ok(_cliente);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            await _tblClienteRepository.DeleteTblCliente(id);
-            return Ok();
+            var result = await _tblClienteRepository.DeleteTblCliente(id);
+
+            return Ok(result);
         }
 
 

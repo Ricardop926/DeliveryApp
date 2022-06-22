@@ -10,6 +10,9 @@ namespace Delivery.Core.Interfaces
     public interface ITblDetallepedidoRepository
     {
         Task<IEnumerable<TblDetallepedido>> GetTblDetallepedidos();
-        Task AddTblDetallepedido(TblDetallepedido obj);
+        Task<TblDetallepedido> GetTblDetallepedido(int id);
+        Task AddTblDetallepedido(TblDetallepedido _Detallepedido);
+       
+        Task<bool> UpdateTblDetallepedido(TblDetallepedido _Detallepedido);
     }
 }

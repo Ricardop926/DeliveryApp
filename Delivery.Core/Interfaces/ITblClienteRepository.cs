@@ -13,8 +13,9 @@ namespace Delivery.Core.Interfaces
         Task<IEnumerable<TblCliente>> GetTblClientes();
         Task<TblCliente> GetTblCliente(int id);
         Task InsertTblCliente(TblCliente _tblCliente);
-        Task UpdateTblCliente(TblCliente cliente);
+        Task<bool> UpdateTblCliente(TblCliente _tblCliente);
+        Task<bool> DeleteTblCliente(int id);
 
-        Task DeleteTblCliente(int id);
+
     }
 }

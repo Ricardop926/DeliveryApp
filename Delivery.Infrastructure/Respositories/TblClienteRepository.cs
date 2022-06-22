@@ -22,7 +22,7 @@ namespace Delivery.Infrastructure.Respositories
         }
         public async Task<TblCliente> GetTblCliente(int id)
         {
-            var _tblCliente = await _context.TblClientes.FirstOrDefaultAsync(x => x.IdCliente == id);
+            var _tblCliente = await _context.TblClientes.FirstOrDefaultAsync(x => x.TblClienteID == id);
             return _tblCliente;
 
         }
@@ -33,20 +33,24 @@ namespace Delivery.Infrastructure.Respositories
 
         }
 
-        public async Task UpdateTblCliente(TblCliente obj)
-        {
-            _context.TblClientes.Update(obj);
-            await _context.SaveChangesAsync();
 
+        public async Task<bool> UpdateTblCliente(TblCliente _tblCliente)
+        {
+            var currentTblCliente = await GetTblCliente(_tblCliente.TblClienteID);
+            currentTblCliente.Nombre = _tblCliente.Nombre;
+            currentTblCliente.Email = _tblCliente.Email;
+            currentTblCliente.FechaIngreso = _tblCliente.FechaIngreso;
+
+            int rows = await _context.SaveChangesAsync();
+            return rows > 0;
         }
 
-        public async Task DeleteTblCliente(int id)
-
+        public async Task<bool> DeleteTblCliente(int id)
         {
-            var clienteExistente = _context.TblClientes.FirstOrDefault(x => x.IdCliente == id);
-            _context.TblClientes.Remove(clienteExistente);
-            await _context.SaveChangesAsync();
-
+            var currentTblCliente = await GetTblCliente(id);
+            _context.TblClientes.Remove(currentTblCliente);
+            int rows = await _context.SaveChangesAsync();
+            return rows > 0;
         }
 
     }

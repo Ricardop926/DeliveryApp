@@ -18,5 +18,6 @@ namespace Delivery.Core.Entities
         public virtual TblEmpleado? IdEmpleadoNavigation { get; set; }
         public virtual TblPedido? IdPedidoNavigation { get; set; }
         public virtual TblRestaurante? IdRestauranteNavigation { get; set; }
+        public object TblDetallepedidoId { get; set; }
     }
 }
